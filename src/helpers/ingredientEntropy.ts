@@ -1,4 +1,4 @@
 export const ingredientEntropy = (numberIngredients: number, numberUniqueIngredients: number): number => {
     const ingredientEntropy = Math.log(numberIngredients)/Math.log(2) * numberUniqueIngredients
-    return Math.round(ingredientEntropy * 100) /100
+    return Math.round(ingredientEntropy * 100) /100 // round to 2 decimal places
 }
