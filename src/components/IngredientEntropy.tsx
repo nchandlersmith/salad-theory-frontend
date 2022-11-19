@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TextField} from "@mui/material";
+import {Grid, TextField, Typography} from "@mui/material";
 import {ingredientEntropy} from "../helpers/ingredientEntropy";
 
 const IngredientEntropy = () => {
@@ -7,18 +7,30 @@ const IngredientEntropy = () => {
   const [numberUniqueIngredients, setNumberUniqueIngredients] = useState<number>(0)
 
   return (
-    <>
-      <div>
+    <Grid
+      sx={{
+        marginTop:'5rem'
+      }}
+      container
+      spacing={0}
+      direction='column'
+      alignItems='center'
+      justifyItems='center'
+    >
+        <Typography
+          variant='h5'
+        >
+          Ingredient Entropy
+        </Typography>
         <TextField
           sx={{
+            marginTop:'1rem',
             margin:'1rem'
           }}
           label='Number of Ingredients'
           value={numberIngredients}
           onChange={event => setNumberIngredients(Number(event.target.value))}
         />
-      </div>
-      <div>
         <TextField
           sx={{
             margin:'1rem'
@@ -27,8 +39,6 @@ const IngredientEntropy = () => {
           value={numberUniqueIngredients}
           onChange={event => setNumberUniqueIngredients(Number(event.target.value))}
         />
-      </div>
-      <div>
         <TextField
           sx={{
             margin:'1rem'
@@ -36,8 +46,7 @@ const IngredientEntropy = () => {
           label='Ingredient Entropy'
           value={String(ingredientEntropy(numberIngredients, numberUniqueIngredients))}
         />
-      </div>
-    </>
+    </Grid>
   )
 
 }

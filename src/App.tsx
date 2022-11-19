@@ -1,6 +1,7 @@
 import IngredientEntropy from "./components/IngredientEntropy";
-import Greeting from "./components/Greeting";
 import {useEffect} from "react";
+import Header from "./components/Header";
+
 
 function App() {
   useEffect(() => {
@@ -8,7 +9,7 @@ function App() {
   }, [])
   return (
     <>
-      <Greeting />
+      <Header/>
       <IngredientEntropy/>
     </>
   );
