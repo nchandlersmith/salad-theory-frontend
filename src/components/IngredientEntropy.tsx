@@ -6,6 +6,13 @@ const IngredientEntropy = () => {
   const [numberIngredients, setNumberIngredients] = useState<number>(0)
   const [numberUniqueIngredients, setNumberUniqueIngredients] = useState<number>(0)
 
+  const zeroGuard = (value: string): string => {
+    if (value === '0') {
+      return ' '
+    }
+    return value
+  }
+
   return (
     <Grid
       sx={{
@@ -20,7 +27,7 @@ const IngredientEntropy = () => {
         <Typography
           variant='h5'
         >
-          Ingredient Entropy
+          Calculate Ingredient Entropy
         </Typography>
         <TextField
           sx={{
@@ -28,7 +35,7 @@ const IngredientEntropy = () => {
             margin:'1rem'
           }}
           label='Number of Ingredients'
-          value={numberIngredients}
+          value={zeroGuard(String(numberIngredients))}
           onChange={event => setNumberIngredients(Number(event.target.value))}
         />
         <TextField
@@ -36,7 +43,7 @@ const IngredientEntropy = () => {
             margin:'1rem'
           }}
           label='Number of Unique Ingredients'
-          value={numberUniqueIngredients}
+          value={zeroGuard(String(numberUniqueIngredients))}
           onChange={event => setNumberUniqueIngredients(Number(event.target.value))}
         />
         <TextField
@@ -44,7 +51,7 @@ const IngredientEntropy = () => {
             margin:'1rem'
           }}
           label='Ingredient Entropy'
-          value={String(ingredientEntropy(numberIngredients, numberUniqueIngredients))}
+          value={ingredientEntropy(numberIngredients, numberUniqueIngredients)}
         />
     </Grid>
   )
