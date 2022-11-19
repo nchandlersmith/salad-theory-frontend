@@ -1,6 +1,7 @@
 {
   "name": "salad-theory-frontend",
   "version": "0.1.0",
+  "homepage": "https://nchandlersmith.github.io/salad-theory-frontend",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -24,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^11.1.0"
+    "cypress": "^11.1.0",
+    "gh-pages": "^4.0.0"
   }
 }
