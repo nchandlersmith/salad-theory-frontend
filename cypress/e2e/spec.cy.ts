@@ -11,6 +11,12 @@ describe('salad theory', () => {
     cy
       .contains('Number of Ingredients')
       .parent()
-      .type('1')
+      .type('5')
+  })
+  it('should have a number of unique ingredients input', () => {
+    cy
+      .contains('Number of Unique Ingredients')
+      .parent()
+      .type('2')
   })
 })

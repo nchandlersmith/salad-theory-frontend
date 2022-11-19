@@ -18,6 +18,13 @@ function App() {
           }}
           label='Number of Ingredients'/>
       </div>
+      <div>
+        <TextField
+          sx={{
+            margin:'2rem'
+          }}
+          label='Number of Unique Ingredients'/>
+      </div>
     </>
   );
 }
