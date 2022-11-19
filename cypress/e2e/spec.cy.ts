@@ -19,8 +19,22 @@ describe('salad theory', () => {
       .parent()
       .type('2')
   })
-  it('should display the ingredient entropy', () => {
+  it('should calculate the ingredient entropy', () => {
+    cy
+    .contains('Number of Ingredients')
+    .parent()
+    .type('5')
+    cy
+    .contains('Number of Unique Ingredients')
+    .parent()
+    .type('2')
     cy
       .contains('Ingredient Entropy')
+      .parent()
+      .find('input')
+      .invoke('val')
+      .then(value => {
+        expect(value).to.eq('4.64')
+      })
   })
 })
