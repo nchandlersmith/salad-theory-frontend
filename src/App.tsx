@@ -25,6 +25,14 @@ function App() {
           }}
           label='Number of Unique Ingredients'/>
       </div>
+      <div>
+        <TextField
+          sx={{
+            margin:'2rem'
+          }}
+          label='Ingredient Entropy'
+        />
+      </div>
     </>
   );
 }

@@ -19,4 +19,8 @@ describe('salad theory', () => {
       .parent()
       .type('2')
   })
+  it('should display the ingredient entropy', () => {
+    cy
+      .contains('Ingredient Entropy')
+  })
 })
