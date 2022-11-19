@@ -1,14 +1,10 @@
-describe('vanilla create react app', () => {
+describe('salad theory', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
   })
-  it('should have edit and save', () => {
-    cy.contains("Edit")
-    cy.contains("and save to reload.")
-  })
-  it('should have a link to learn more', () => {
-    cy.contains('Learn React')
-        .invoke('attr', 'href')
-        .should('eq', 'https://reactjs.org')
+  it('should have a link to the salad theory document', () => {
+    cy
+        .contains('A food entropy calculator inspired by this work.')
+        .should('have.attr', 'href', 'https://saladtheory.github.io/')
   })
 })
