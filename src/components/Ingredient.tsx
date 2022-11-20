@@ -1,7 +1,14 @@
 import {TextField} from "@mui/material";
 import React from "react";
+import {IngredientItem} from "../interfaces/ingredientItem";
 
-const ingredient = () => {
+interface Props {
+  ingredient: IngredientItem
+  key: number
+  setIngredients: (ingredients: IngredientItem[]) => void
+}
+
+const ingredient = ({ingredient}: Props): JSX.Element => {
   return(
     <>
       <TextField

@@ -1,8 +1,15 @@
 import {FormGroup, TextField, Typography} from "@mui/material";
 import React from "react";
 import Ingredient from "./Ingredient";
+import {IngredientItem} from "../interfaces/ingredientItem";
 
-const Food = () => {
+interface Props {
+  ingredients: IngredientItem[]
+  setIngredients: (ingredients: IngredientItem[]) => void
+}
+
+
+const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
   return (
     <>
       <Typography
@@ -28,7 +35,16 @@ const Food = () => {
           justifyContent: 'center'
         }}
       >
-        <Ingredient/>
+        {<ul>{ingredients.map((ingredient: IngredientItem, index) => {
+          return (
+            <li>
+              {<Ingredient
+                ingredient={ingredient}
+                setIngredients={setIngredients}
+                key={index}
+              />}
+            </li>)
+        })}</ul>}
       </FormGroup>
     </>
   )
