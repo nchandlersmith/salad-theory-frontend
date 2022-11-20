@@ -16,7 +16,7 @@ describe('salad theory', () => {
       cy
         .contains('Number of Ingredients')
         .parent()
-        .type('5', {delay: 100})
+        .type('5')
       cy
         .contains('Number of Unique Ingredients')
         .parent()
