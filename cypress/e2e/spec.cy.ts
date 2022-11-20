@@ -1,5 +1,3 @@
-import {wait} from "@testing-library/user-event/dist/utils";
-
 describe('salad theory', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
@@ -13,14 +11,8 @@ describe('salad theory', () => {
   })
   describe('calculate ingredient entropy', () => {
     it('should calculate the ingredient entropy', () => {
-      cy
-        .contains('Number of Ingredients')
-        .parent()
-        .type('5')
-      cy
-        .contains('Number of Unique Ingredients')
-        .parent()
-        .type('2')
+      cy.inputByLabel('Number of Ingredients', '5')
+      cy.inputByLabel('Number of Unique Ingredients', '2')
       cy
         .contains(/^Ingredient Entropy$/)
         .parent()

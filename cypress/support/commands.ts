@@ -8,8 +8,17 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
-//
+// @ts-ignore
+// @ts-ignore
+
+Cypress.Commands.add('inputByLabel',
+(labelText: string, value: string) => {
+      cy
+        .contains(labelText)
+        .parent()
+        .type(value)
+})
+
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
@@ -35,3 +44,9 @@
 //     }
 //   }
 // }
+
+declare namespace Cypress {
+      interface Chainable {
+            inputByLabel(labelText: string, value: string): Chainable
+      }
+}
