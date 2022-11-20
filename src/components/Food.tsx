@@ -1,5 +1,6 @@
 import {FormGroup, TextField, Typography} from "@mui/material";
 import React from "react";
+import Ingredient from "./Ingredient";
 
 const Food = () => {
   return (
@@ -27,25 +28,7 @@ const Food = () => {
           justifyContent: 'center'
         }}
       >
-        <TextField
-          sx={{
-            margin: '1em'
-          }}
-          label='Ingredient Name'
-        />
-        <TextField
-          sx={{
-            margin: '1em'
-          }}
-          label='Unit'
-        />
-        <TextField
-          sx={{
-            margin: '1em'
-          }}
-          label='Quantity'
-        />
-
+        <Ingredient/>
       </FormGroup>
     </>
   )
