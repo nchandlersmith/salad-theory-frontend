@@ -24,4 +24,17 @@ describe('salad theory', () => {
       cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, ' ')
     })
   })
+  describe('food', () => {
+    it('should have a form title', () => {
+      cy.contains(/^Food$/)
+    })
+    it('should have a name input', () => {
+      cy.inputByLabel('Name', 'Hamburger')
+    })
+    describe('recipe', () => {
+      it('should have a title', () => {
+        cy.contains(/^Recipe$/)
+      })
+    })
+  })
 })
