@@ -1,4 +1,31 @@
 /// <reference types="cypress" />
+
+Cypress.Commands.add('inputByLabel',
+  (labelText, value) => {
+    cy
+      .contains(labelText)
+      .parent()
+      .type(value)
+  })
+
+Cypress.Commands.add('verifyInputEqualsByLabel',
+  (labelText, expectedValue) => {
+    cy
+      .contains(labelText)
+      .parent()
+      .find('input')
+      .invoke('val')
+      .then(actualValue => {
+        expect(actualValue).to.eq(expectedValue)
+      })
+  })
+
+declare namespace Cypress {
+  interface Chainable {
+    inputByLabel(labelText: string, value: string): Chainable<void>,
+    verifyInputEqualsByLabel(labelText: string | RegExp, expectedValue: string): Chainable<void>
+  }
+}
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -8,16 +35,6 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-// @ts-ignore
-// @ts-ignore
-
-Cypress.Commands.add('inputByLabel',
-(labelText: string, value: string) => {
-      cy
-        .contains(labelText)
-        .parent()
-        .type(value)
-})
 
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
@@ -44,9 +61,3 @@ Cypress.Commands.add('inputByLabel',
 //     }
 //   }
 // }
-
-declare namespace Cypress {
-      interface Chainable {
-            inputByLabel(labelText: string, value: string): Chainable
-      }
-}

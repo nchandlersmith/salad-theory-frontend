@@ -13,40 +13,12 @@ describe('salad theory', () => {
     it('should calculate the ingredient entropy', () => {
       cy.inputByLabel('Number of Ingredients', '5')
       cy.inputByLabel('Number of Unique Ingredients', '2')
-      cy
-        .contains(/^Ingredient Entropy$/)
-        .parent()
-        .find('input')
-        .invoke('val')
-        .then(value => {
-          expect(value).to.eq('4.64')
-        })
+      cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, '4.64')
     })
     it('should show empty fields when I land on the page', () => {
-      cy
-        .contains(/^Number of Ingredients$/)
-        .parent()
-        .find('input')
-        .invoke('val')
-        .then(value => {
-          expect(value).to.eq(' ')
-        })
-      cy
-        .contains(/^Number of Unique Ingredients$/)
-        .parent()
-        .find('input')
-        .invoke('val')
-        .then(value => {
-          expect(value).to.eq(' ')
-        })
-      cy
-        .contains(/^Ingredient Entropy$/)
-        .parent()
-        .find('input')
-        .invoke('val')
-        .then(value => {
-          expect(value).to.eq(' ')
-        })
+      cy.verifyInputEqualsByLabel(/^Number of Ingredients$/, ' ')
+      cy.verifyInputEqualsByLabel(/^Number of Unique Ingredients$/, ' ')
+      cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, ' ')
     })
 
   })
