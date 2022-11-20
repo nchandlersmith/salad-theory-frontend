@@ -23,7 +23,8 @@ const Food = () => {
       <FormGroup
         sx={{
           display: 'flex',
-          flexDirection: 'row'
+          flexDirection: 'row',
+          justifyContent: 'center'
         }}
       >
         <TextField
