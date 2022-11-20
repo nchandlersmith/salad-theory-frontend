@@ -10,6 +10,9 @@ describe('salad theory', () => {
     })
   })
   describe('calculate ingredient entropy', () => {
+    it ('should have a form title', () => {
+      cy.contains('Calculate Ingredient Entropy')
+    })
     it('should calculate the ingredient entropy', () => {
       cy.inputByLabel('Number of Ingredients', '5')
       cy.inputByLabel('Number of Unique Ingredients', '2')
@@ -20,6 +23,5 @@ describe('salad theory', () => {
       cy.verifyInputEqualsByLabel(/^Number of Unique Ingredients$/, ' ')
       cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, ' ')
     })
-
   })
 })
