@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Grid, TextField, Typography} from "@mui/material";
+import {FormGroup, Grid, TextField, Typography} from "@mui/material";
 import {ingredientEntropy} from "../helpers/ingredientEntropy";
 
 const IngredientEntropy = () => {
@@ -14,25 +14,24 @@ const IngredientEntropy = () => {
   }
 
   return (
-    <Grid
-      sx={{
-        marginTop:'5em'
-      }}
-      container
-      spacing={0}
-      direction='column'
-      alignItems='center'
-      justifyItems='center'
-    >
-        <Typography
-          variant='h5'
-        >
-          Calculate Ingredient Entropy
-        </Typography>
+    <>
+      <Typography
+        variant='h5'
+      >
+        Calculate Ingredient Entropy
+      </Typography>
+      <FormGroup
+        sx={{
+          marginTop: '1em',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center'
+        }}
+      >
         <TextField
           sx={{
-            marginTop:'1em',
-            margin:'1em'
+            marginTop: '1em',
+            margin: '1em'
           }}
           label='Number of Ingredients'
           value={zeroGuard(String(numberIngredients))}
@@ -40,7 +39,7 @@ const IngredientEntropy = () => {
         />
         <TextField
           sx={{
-            margin:'1em'
+            margin: '1em'
           }}
           label='Number of Unique Ingredients'
           value={zeroGuard(String(numberUniqueIngredients))}
@@ -48,12 +47,13 @@ const IngredientEntropy = () => {
         />
         <TextField
           sx={{
-            margin:'1em'
+            margin: '1em'
           }}
           label='Ingredient Entropy'
           value={ingredientEntropy(numberIngredients, numberUniqueIngredients)}
         />
-    </Grid>
+      </FormGroup></>
+
   )
 
 }

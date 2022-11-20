@@ -8,7 +8,8 @@ const Header = () => {
       sx={{
         display: 'flex',
         justifyContent: 'center',
-        width: '100%'
+        width: '100%',
+        marginBottom: '1em'
       }}
     >
       <Typography
