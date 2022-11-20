@@ -16,7 +16,7 @@ const IngredientEntropy = () => {
   return (
     <Grid
       sx={{
-        marginTop:'5rem'
+        marginTop:'5em'
       }}
       container
       spacing={0}
@@ -31,8 +31,8 @@ const IngredientEntropy = () => {
         </Typography>
         <TextField
           sx={{
-            marginTop:'1rem',
-            margin:'1rem'
+            marginTop:'1em',
+            margin:'1em'
           }}
           label='Number of Ingredients'
           value={zeroGuard(String(numberIngredients))}
@@ -40,7 +40,7 @@ const IngredientEntropy = () => {
         />
         <TextField
           sx={{
-            margin:'1rem'
+            margin:'1em'
           }}
           label='Number of Unique Ingredients'
           value={zeroGuard(String(numberUniqueIngredients))}
@@ -48,7 +48,7 @@ const IngredientEntropy = () => {
         />
         <TextField
           sx={{
-            margin:'1rem'
+            margin:'1em'
           }}
           label='Ingredient Entropy'
           value={ingredientEntropy(numberIngredients, numberUniqueIngredients)}
