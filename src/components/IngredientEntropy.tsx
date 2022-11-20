@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {FormGroup, Grid, TextField, Typography} from "@mui/material";
+import {FormGroup, TextField, Typography} from "@mui/material";
 import {ingredientEntropy} from "../helpers/ingredientEntropy";
 
 const IngredientEntropy = () => {
