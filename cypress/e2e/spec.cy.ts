@@ -35,10 +35,10 @@ describe('salad theory', () => {
       it('should have a title', () => {
         cy.contains(/^Recipe$/)
       })
-      it('should have an ingredient', () => {
+      it('should have an ingredient name', () => {
         cy.inputByLabel('Ingredient Name', 'Bun')
       })
-      it('should have an ingredient', () => {
+      it('should have an unit', () => {
         cy.inputByLabel('Unit', 'Each')
       })
       it('should have a quantity', () => {
