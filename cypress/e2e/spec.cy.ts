@@ -44,6 +44,12 @@ describe('salad theory', () => {
       it('should have a quantity', () => {
         cy.inputByLabel('Quantity', '2')
       })
+      it ('should update entropy', () => {
+        cy.inputByLabel('Ingredient Name', 'Bun')
+        cy.inputByLabel('Unit', 'Each')
+        cy.inputByLabel('Quantity', '2')
+        cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, '1')
+      })
     })
   })
 })

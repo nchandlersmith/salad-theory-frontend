@@ -1,12 +1,25 @@
 import React, {useState} from "react";
 import {FormGroup, TextField, Typography} from "@mui/material";
 import {ingredientEntropy} from "../helpers/ingredientEntropy";
+import {IngredientItem} from "../interfaces/ingredientItem";
 
-const IngredientEntropy = () => {
+interface Props {
+  ingredients: IngredientItem[]
+}
+
+const IngredientEntropy = ({ingredients}: Props) => {
   const [numberIngredients, setNumberIngredients] = useState<number>(0)
   const [numberUniqueIngredients, setNumberUniqueIngredients] = useState<number>(0)
 
-  const zeroGuard = (value: string): string => {
+  const calculateEntropy = (numberIngredients: number, numberUniqueIngredients: number): string => {
+    if (ingredients[0].quantity) {
+      console.log(`quantity: ${ingredients[0].quantity}`)
+      return ingredientEntropy(ingredients[0].quantity, 1)
+    }
+    return ingredientEntropy(numberIngredients, numberUniqueIngredients)
+  }
+
+    const zeroGuard = (value: string): string => {
     if (value === '0') {
       return ' '
     }
@@ -50,7 +63,7 @@ const IngredientEntropy = () => {
             margin: '1em'
           }}
           label='Ingredient Entropy'
-          value={ingredientEntropy(numberIngredients, numberUniqueIngredients)}
+          value={calculateEntropy(numberIngredients, numberUniqueIngredients)}
         />
       </FormGroup></>
 

@@ -6,7 +6,7 @@ import {Grid} from "@mui/material";
 import {IngredientItem} from "./interfaces/ingredientItem";
 
 const initialIngredients: IngredientItem = {
-  ingredientName: '', unit: '', quantity: 0,
+  name: '', unit: '', quantity: 0,
 }
 
 function App() {
@@ -30,7 +30,8 @@ function App() {
         ingredients={ingredients}
         setIngredients={setIngredients}
       />
-      <IngredientEntropy/>
+      <IngredientEntropy
+       ingredients={ingredients}/>
     </Grid>
   );
 }
