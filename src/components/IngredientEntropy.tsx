@@ -13,7 +13,6 @@ const IngredientEntropy = ({ingredients}: Props) => {
 
   const calculateEntropy = (numberIngredients: number, numberUniqueIngredients: number): string => {
     if (ingredients[0].quantity) {
-      console.log(`quantity: ${ingredients[0].quantity}`)
       return ingredientEntropy(ingredients[0].quantity, 1)
     }
     return ingredientEntropy(numberIngredients, numberUniqueIngredients)
