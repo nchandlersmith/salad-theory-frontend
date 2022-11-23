@@ -1,4 +1,4 @@
-import {FormGroup, TextField, Typography} from "@mui/material";
+import {Button, FormGroup, TextField, Typography} from "@mui/material";
 import React from "react";
 import Ingredient from "./Ingredient";
 import {IngredientItem} from "../interfaces/ingredientItem";
@@ -8,8 +8,17 @@ interface Props {
   setIngredients: (ingredients: IngredientItem[]) => void
 }
 
+const baseIngredient: IngredientItem = {
+  name: '',
+  unit: '',
+  quantity: 0
+}
+
 
 const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
+  const addIngredient = ():void => {
+    setIngredients([...ingredients, baseIngredient])
+  }
   return (
     <>
       <Typography
@@ -32,16 +41,28 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
         sx={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center'
         }}
       >
         {ingredients.map((ingredient: IngredientItem, index) => {
           return (
-            <Ingredient
-              ingredient={ingredient}
-              setIngredients={setIngredients}
-              key={index}
-              />)
+            <>
+              <Ingredient
+                ingredient={ingredient}
+                setIngredients={setIngredients}
+                key={index}
+              />
+              <Button
+                sx={{
+                  fontSize: '1.5em',
+                  height: '2em'
+                }}
+                onClick={() => addIngredient()}
+                key={`${index}-button-add`}
+              >+</Button>
+            </>
+          )
         })}
       </FormGroup>
     </>
