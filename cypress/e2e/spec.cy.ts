@@ -38,7 +38,7 @@ describe('salad theory', () => {
       it('should have an ingredient name', () => {
         cy.inputByLabel('Ingredient Name', 'Bun')
       })
-      it('should have an unit', () => {
+      it('should have a unit', () => {
         cy.inputByLabel('Unit', 'Each')
       })
       it('should have a quantity', () => {
