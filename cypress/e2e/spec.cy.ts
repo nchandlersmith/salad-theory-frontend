@@ -49,6 +49,7 @@ describe('salad theory', () => {
         cy.inputByLabel('Unit', 'Each')
         cy.inputByLabel('Quantity', '2')
         cy.verifyInputEqualsByLabel(/^Number of Ingredients$/, '2')
+        cy.verifyInputEqualsByLabel(/^Number of Unique Ingredients$/, '1')
         cy.verifyInputEqualsByLabel(/^Ingredient Entropy$/, '1')
       })
     })
