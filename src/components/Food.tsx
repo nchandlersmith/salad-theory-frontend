@@ -35,16 +35,13 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
           justifyContent: 'center'
         }}
       >
-        {<ul>{ingredients.map((ingredient: IngredientItem, index) => {
+        {ingredients.map((ingredient: IngredientItem, index) => {
           return (
-            <li>
-              {<Ingredient
-                ingredient={ingredient}
-                setIngredients={setIngredients}
-                key={index}
-              />}
-            </li>)
-        })}</ul>}
+            <Ingredient
+              ingredient={ingredient}
+              setIngredients={setIngredients}
+              key={index}/>)
+        })}
       </FormGroup>
     </>
   )
