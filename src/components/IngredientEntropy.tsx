@@ -11,14 +11,14 @@ const IngredientEntropy = ({ingredients}: Props) => {
   const [numberIngredients, setNumberIngredients] = useState<number>(0)
   const [numberUniqueIngredients, setNumberUniqueIngredients] = useState<number>(0)
 
-  const handleNumberOfIngredientsChange = (value: string):void => {
+  const protectedNumberOfIngredientsChange = (value: string):void => {
     const numberValue = Number(value)
     if (numberValue !== numberIngredients) {
       setNumberIngredients(numberValue)
     }
   }
 
-  const handleNumberOfUniqueIngredientsChange = (value: string):void => {
+  const protectedNumberOfUniqueIngredientsChange = (value: string):void => {
     const numberValue = Number(value)
     if (numberValue !== numberUniqueIngredients) {
       setNumberUniqueIngredients(numberValue)
@@ -28,8 +28,8 @@ const IngredientEntropy = ({ingredients}: Props) => {
   const calculateEntropy = (numberIngredients: number, numberUniqueIngredients: number): string => {
     const newQuantity = ingredients[0].quantity
     if (newQuantity) {
-      handleNumberOfIngredientsChange(String(newQuantity))
-      handleNumberOfUniqueIngredientsChange('1')
+      protectedNumberOfIngredientsChange(String(newQuantity))
+      protectedNumberOfUniqueIngredientsChange('1')
       return ingredientEntropy(newQuantity, 1)
     }
     return ingredientEntropy(numberIngredients, numberUniqueIngredients)
@@ -64,7 +64,7 @@ const IngredientEntropy = ({ingredients}: Props) => {
           }}
           label='Number of Ingredients'
           value={zeroGuard(String(numberIngredients))}
-          onChange={event => handleNumberOfIngredientsChange(event.target.value)}
+          onChange={event => protectedNumberOfIngredientsChange(event.target.value)}
         />
         <TextField
           sx={{
@@ -72,7 +72,7 @@ const IngredientEntropy = ({ingredients}: Props) => {
           }}
           label='Number of Unique Ingredients'
           value={zeroGuard(String(numberUniqueIngredients))}
-          onChange={event => handleNumberOfUniqueIngredientsChange(event.target.value)}
+          onChange={event => protectedNumberOfUniqueIngredientsChange(event.target.value)}
         />
         <TextField
           sx={{
