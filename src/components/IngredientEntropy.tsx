@@ -11,9 +11,20 @@ const IngredientEntropy = ({ingredients}: Props) => {
   const [numberIngredients, setNumberIngredients] = useState<number>(0)
   const [numberUniqueIngredients, setNumberUniqueIngredients] = useState<number>(0)
 
+  const handleNumberOfIngredientsChange = (value: string):void => {
+    const numberValue = Number(value)
+    console.log(`existing number of ingredients: ${numberIngredients}`)
+    console.log(`new number of ingredients: ${value}`)
+    if (numberValue !== numberIngredients) {
+      setNumberIngredients(numberValue)
+    }
+  }
+
   const calculateEntropy = (numberIngredients: number, numberUniqueIngredients: number): string => {
-    if (ingredients[0].quantity) {
-      return ingredientEntropy(ingredients[0].quantity, 1)
+    const newQuantity = ingredients[0].quantity
+    if (newQuantity) {
+      handleNumberOfIngredientsChange(String(newQuantity))
+      return ingredientEntropy(newQuantity, 1)
     }
     return ingredientEntropy(numberIngredients, numberUniqueIngredients)
   }
@@ -47,7 +58,7 @@ const IngredientEntropy = ({ingredients}: Props) => {
           }}
           label='Number of Ingredients'
           value={zeroGuard(String(numberIngredients))}
-          onChange={event => setNumberIngredients(Number(event.target.value))}
+          onChange={event => handleNumberOfIngredientsChange(event.target.value)}
         />
         <TextField
           sx={{
