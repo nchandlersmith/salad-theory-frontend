@@ -40,7 +40,8 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
             <Ingredient
               ingredient={ingredient}
               setIngredients={setIngredients}
-              key={index}/>)
+              key={index}
+              />)
         })}
       </FormGroup>
     </>

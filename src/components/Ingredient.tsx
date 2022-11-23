@@ -4,7 +4,6 @@ import {IngredientItem} from "../interfaces/ingredientItem";
 
 interface Props {
   ingredient: IngredientItem
-  key: number
   setIngredients: (ingredients: IngredientItem[]) => void
 }
 
