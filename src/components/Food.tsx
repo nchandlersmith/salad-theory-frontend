@@ -26,7 +26,7 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
         }}
         variant='h6'
       >
-        Recipe
+        Ingredient List
       </Typography>
       <FormGroup
         sx={{

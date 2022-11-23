@@ -31,9 +31,9 @@ describe('salad theory', () => {
     it('should have a name input', () => {
       cy.inputByLabel('Name', 'Hamburger')
     })
-    describe('recipe', () => {
+    describe('ingredient list', () => {
       it('should have a title', () => {
-        cy.contains(/^Recipe$/)
+        cy.contains(/^Ingredient List$/)
       })
       it('should have an ingredient name', () => {
         cy.inputByLabel('Ingredient Name', 'Bun')
