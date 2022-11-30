@@ -44,11 +44,15 @@ describe('salad theory', () => {
       it('should have a quantity', () => {
         cy.inputByLabel('Quantity', '2')
       })
-      it('should allow me to add an ingredient', () => {
+      it('should allow adjustment of number of ingredients', () => {
         cy.contains(/^Food$/)
           .parent()
           .contains(/^\+$/).click()
         cy.get('.MuiButtonBase-root').should('have.length', 2)
+        cy.contains(/^Food$/)
+          .parent()
+          .contains(/^-$/).click()
+        cy.get('.MuiButtonBase-root').should('have.length', 1)
       })
       it ('should update entropy', () => {
         cy.inputByLabel('Ingredient Name', 'Bun')

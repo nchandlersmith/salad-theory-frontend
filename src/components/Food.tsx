@@ -1,4 +1,4 @@
-import {Button, FormGroup, TextField, Typography} from "@mui/material";
+import {Button, FormGroup, Grid, TextField, Typography} from "@mui/material";
 import React from "react";
 import Ingredient from "./Ingredient";
 import {IngredientItem} from "../interfaces/ingredientItem";
@@ -18,6 +18,10 @@ const baseIngredient: IngredientItem = {
 const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
   const addIngredient = ():void => {
     setIngredients([...ingredients, baseIngredient])
+  }
+  const removeIngredient = (index: number):void => {
+    ingredients.splice(index,1)
+    setIngredients(ingredients)
   }
   return (
     <>
@@ -39,15 +43,18 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
       </Typography>
       <FormGroup
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center'
         }}
       >
         {ingredients.map((ingredient: IngredientItem, index) => {
           return (
-            <>
+            <Grid
+              container
+              direction='row'
+              justifyContent='center'
+              alignItems='center'
+            >
               <Ingredient
                 ingredient={ingredient}
                 setIngredients={setIngredients}
@@ -61,7 +68,15 @@ const Food = ({ingredients, setIngredients}: Props): JSX.Element => {
                 onClick={() => addIngredient()}
                 key={`${index}-button-add`}
               >+</Button>
-            </>
+              <Button
+                sx={{
+                  fontSize: '1.5em',
+                  height: '2em'
+                }}
+                onClick={() => removeIngredient(index)}
+                key={`${index}-button-remove`}
+              >-</Button>
+            </Grid>
           )
         })}
       </FormGroup>
